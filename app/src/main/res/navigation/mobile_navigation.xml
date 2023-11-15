@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.nouri.exam.ui.fragments.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_personFragment"
+            app:destination="@id/nav_person"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_nav_home_to_employeFragment"
+            app:destination="@id/nav_employe" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.nouri.exam.ui.fragments.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.nouri.exam.ui.fragments.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_person"
+        android:name="com.nouri.exam.ui.fragments.person.PersonFragment"
+        android:label="Persons"
+        tools:layout="@layout/fragment_person" >
+        <action
+            android:id="@+id/action_nav_person_to_personAddFragment"
+            app:destination="@id/personAddFragment" />
+        <action
+            android:id="@+id/action_nav_person_to_personUpdateFragment"
+            app:destination="@id/personUpdateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personAddFragment"
+        android:name="com.nouri.exam.ui.fragments.addperson.PersonAddFragment"
+        android:label="Add Person"
+        tools:layout="@layout/fragment_person_add" />
+    <fragment
+        android:id="@+id/personUpdateFragment"
+        android:name="com.nouri.exam.ui.fragments.updateperson.PersonUpdateFragment"
+        android:label="Update Person" >
+        <argument
+            android:name="person"
+            app:argType="com.nouri.exam.data.entities.Person" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_employe"
+        android:name="com.nouri.exam.ui.fragments.employe.EmployeFragment"
+        android:label="Employes"
+        tools:layout="@layout/fragment_employe" />
+</navigation>
